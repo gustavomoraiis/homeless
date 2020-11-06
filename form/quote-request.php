@@ -7,7 +7,7 @@ $mail->setLanguage('br');
 $emailTO = $emailBCC =  $emailCC = array();
 
 // Enter Your Sitename 
-$sitename = 'LT Imóveis';
+$sitename = 'Homeless Projeto';
 
 // Enter your email addresses: @required
 // $emailTO[] = array( 'email' => 'gelatinacfal@gmail.com', 'name' => 'LT Imóveis' ); 
@@ -32,17 +32,15 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST') {
 		$qr_name	= $_POST["quote-request-name"];
 		$qr_email	= $_POST["quote-request-email"];
 		$qr_email2	= $_POST["quote-request-email2"];
-		$emailTO[] = array( 'email' => $qr_email2, 'name' => 'LT Imóveis' );
+		$emailTO[] = array( 'email' => $qr_email2, 'name' => 'Homeless Projeto' );
 		$qr_phone	= isset($_POST["quote-request-phone"]) ? $_POST["quote-request-phone"] : null;
-		$qr_objetivo = $_POST["quote-request-objetivo"];
-		$qr_tipo = $_POST["quote-request-tipo"];
 		$qr_endereco = $_POST["quote-request-endereco"];
-		$qr_cidade = $_POST["quote-request-cidade"];
-		$qr_estado = $_POST["quote-request-estado"];
+		$qr_doacao = $_POST["quote-request-doacao"];
+		$qr_data = $_POST["quote-request-data"];
 
 		// $qr_email	= $_POST["quote-request-email"];
 		// $qr_name	= $_POST["quote-request-name"];
-		$subject = isset($_POST["quote-request-objetivo"]) ? $_POST["quote-request-objetivo"] : 'Novo contato';
+		$subject = isset($_POST["quote-request-name"]) ? $_POST["quote-request-name"] : 'Novo contato';
 		$subject .=  ' - ' . $sitename;
 		// $qr_phone	= isset($_POST["quote-request-phone"]) ? $_POST["quote-request-phone"] : null;
 		// $qr_company	= isset($_POST["quote-request-company"]) ? $_POST["quote-request-company"] : null;
@@ -96,11 +94,10 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST') {
 			$bodymsg .= isset($qr_name) ? "Nome: $qr_name<br><br>" : '';
 			$bodymsg .= isset($qr_email) ? "E-mail: $qr_email<br><br>" : '';
 			$bodymsg .= isset($qr_phone) ? "Fone: $qr_phone<br><br>" : '';
-			$bodymsg .= isset($qr_objetivo) ? "Obejetivo: $qr_objetivo<br><br><br>" : '';
-			$bodymsg .= isset($qr_tipo) ? "Tipo da Propriedade: $qr_tipo<br><br>" : '';
+			
 			$bodymsg .= isset($qr_endereco) ? "Endereço: $qr_endereco<br><br>" : '';
-			$bodymsg .= isset($qr_cidade) ? "Cidade: $qr_cidade<br><br><br>" : '';
-			$bodymsg .= isset($qr_estado) ? "Estado: $qr_estado<br><br>" : '';
+			$bodymsg .= isset($qr_cidade) ? "Doação: $qr_doacao<br><br><br>" : '';
+			$bodymsg .= isset($qr_estado) ? "Data retirada: $qr_data<br><br>" : '';
 			$bodymsg .= $_SERVER['HTTP_REFERER'] ? '<br>---<br><br>E-mail enviado de: ' . $_SERVER['HTTP_REFERER'] : '';
 			
 			$mail->MsgHTML( $bodymsg );
