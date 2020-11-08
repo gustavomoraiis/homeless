@@ -73,9 +73,6 @@
 					</div>
 				</div>
 			</div>
-
-			
-
 			<div class="header header-light nav-right-side">
 				<nav class="headnavbar">
 					<div class="nav-header">
@@ -218,7 +215,10 @@
 								<div class="form-group col-lg-12 col-md-12">
 									<input type="text" class="hidden" name="form-anti-honeypot" value="">
 									<input class="hidden" placeholder="E-mail" name="quote-request-email2" id="email" type="text" value="gelatinacfal@gmail.com">
-									<button type="submit" class="btn btn-theme">Enviar</button>	
+									<!-- <button type="submit" class="btn btn-theme">Enviar</button>	 -->
+									<a class="btn btn-theme" href="construcao">
+										Enviar
+									</a>
 								</div>
 								<div class="form-results"></div>
 						</form>
